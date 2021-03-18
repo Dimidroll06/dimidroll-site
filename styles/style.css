@@ -1,0 +1,114 @@
+/*
+//dark
+#0E1425
+#232b41
+
+//light
+#384361
+
+//main
+#07E3AB
+*/
+
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+*{
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    margin:0;
+    background-color: #232b41;
+    color:aliceblue;
+    
+}
+
+a{
+    color: aliceblue; 
+    transition-property: color;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+}
+a:hover{ color: #07E3AB; }
+
+
+/* ГОЛОВА СТРАНИЦЫ */
+header{
+    background-color: #384361;
+    width: 100%;
+    min-height: 64px;
+
+    position: absolute;
+    z-index: 1000;
+}
+
+/*=====меню======*/
+ul{ margin: 0; }
+
+nav ul{ position: absolute; right: 0;}
+nav li{ float: left; margin: 20px 20px; font-size: 18px;}
+
+/* лого */
+.logo{
+    width: 48px;
+    height: 48px;
+
+    background-image: url('../images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+    top:8px;
+    left: 8px;
+
+    border-radius: 100%;
+    border: 0px #07E3AB solid;
+
+    transition: border-width 0.1s ease-out;
+
+    cursor:pointer;
+}
+.logo:hover{
+    border: 2px #07E3AB solid;
+}
+
+
+/*======страница=====*/
+.inner{
+    width: 100%;
+    image-rendering: auto;   
+}
+
+.pixelart{
+    image-rendering: pixelated;     /* Chrome */
+}
+
+.line{
+    width: 100%;
+    height: 3px;
+    background-color: aliceblue;
+}
+.thin-line{
+    width: 100%;
+    height: 1px;
+    background-color: aliceblue;
+}
+
+/*Футер*/
+footer{
+    background-color: #384361;
+    width: 100%;
+    padding: 8px 0;
+
+    z-index: 1000;
+}
+footer *{
+    text-align: left;
+    font-size: 13px;
+    margin: 0%;
+}
