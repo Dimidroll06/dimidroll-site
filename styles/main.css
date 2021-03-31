@@ -90,8 +90,9 @@ h3{
     text-align: center;
 }
 .big_news, .small_news{
-    display: inline-block;
-    margin: 20px 30px;
+    display: block;
+    float: left;
+    margin: 10px 30px;
     position: relative;
     box-shadow:  10px 10px 10px #0E1425;
     font-size: 0px;
