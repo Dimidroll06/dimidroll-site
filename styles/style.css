@@ -29,13 +29,20 @@ body{
 }
 
 a{
-    color: aliceblue; 
+    color: rgb(152, 203, 255); 
     transition-property: color;
     transition-duration: .2s;
     transition-timing-function: ease-out;
 }
 a:hover{ color: #07E3AB; }
 
+
+.container{
+    position: relative;
+    max-width: 100%;
+    width: 600px;
+    margin: auto;
+}
 
 /* ГОЛОВА СТРАНИЦЫ */
 header{
