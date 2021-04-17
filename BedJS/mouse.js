@@ -1,4 +1,4 @@
-function ImageBedJS(BedPlug){
+function MouseBedJS(BedPlug){
     return function(){
         var Bed  = BedPlug,
             canv = Bed.domElement
