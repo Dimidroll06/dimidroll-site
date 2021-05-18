@@ -1,0 +1,3 @@
+function createBlogBlock(blog){
+   
+}

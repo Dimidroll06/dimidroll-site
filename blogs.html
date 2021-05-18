@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Document</title>
+
+   <script src="/scripts/main.js"></script>
+
+   
+   <link rel="stylesheet" href="/style.css">
+   <link rel="stylesheet" href="/styles/blogs.css">
+   <script src="./pages.js"></script>
+   
+   <link rel="stylesheet" href="/style.css">
+   <link rel="stylesheet" href="/styles/github-gist.css">
+
+   <script src="/scripts/highlight.pack.js"></script>
+
+   <script src="/scripts/showdown.min.js"></script>
+
+</head>
+<body onload="newHeader(document.querySelector('header'))">
+   
+   <div id="start"></div>
+
+   <!-- HEADER -->
+   <header></header>
+   
+
+   <!-- NAV -->
+   <script>newNav();</script>
+
+   <!-- MAIN -->
+   <div class="main_page">
+      <div style="height: 20px;"></div>
+      <h1 style="margin: 25px;">Последние новости</h1>
+
+      <div class="posts"></div>
+
+      <script>
+      var count = 0
+      pages.blog.forEach((blogName, indexOfBlogName) => {
+         var name = blogName
+         fetch(`/blog/${name}/parameters.json`).then(resp=>{
+            if(resp.ok){
+               resp.json().then(params=>{
+                  fetch(`/blog/${name}/text.md`).then(resp2=>{
+                     if(resp2.ok){
+                        resp2.text().then(blogMdText=>{
+                           var blog = document.createElement('section');
+                           var image = document.createElement('div');
+                           image.classList.add('image');
+                           image.style.backgroundImage = `url('${params.image}')`
+                           blog.appendChild(image);
+
+                           var converter = new showdown.Converter({
+                              parseImgDimensions: true,
+                              simplifiedAutoLink: true,
+                              excludeTrailingPunctuationFromURLs: true,
+                              strikethrough: true,
+                              tables: true,
+                              tasklists: true,
+                              simpleLineBreaks: true,
+                           });
+                           var fixedMdText = blogMdText.split('[---]');
+                           fixedMdText = fixedMdText[0]
+                           
+                           var innerHtml = converter.makeHtml(fixedMdText)+`<br><br>\n<a href="blog/page.html?blog=${name}"> READ MORE </a>`;
+                           var p = document.createElement('div');
+                           p.classList.add('inner');
+                           p.innerHTML = innerHtml;
+                           blog.appendChild(p);
+
+                           document.querySelector('.posts').appendChild(blog);
+
+                           count++
+                           highlightAndCheckPosts(count)
+                        })
+                     }else{
+                        console.log('Error 404');
+                        var p = document.createElement('p');
+                        p.innerText = '404'
+                        document.querySelector('.posts').appendChild(p);
+                        highlightAndCheckPosts(count)
+                     }
+                  })
+               })
+            }else{
+               console.log('Error 404');
+               var p = document.createElement('p');
+               p.innerText = '404'
+               document.querySelector('.posts').appendChild(p);
+               highlightAndCheckPosts(count)
+            }
+         })
+
+
+      });
+      
+      function highlightAndCheckPosts(count){
+         
+         hljs.highlightAll();
+         if(document.querySelector('.posts').innerHTML == '') document.querySelector('.posts').innerText = 'No posts Yet'
+         
+         document.getElementById('countOfBlogs').innerText = `постов найденно: ${count}`
+      }
+      </script>
+
+      <div style="height: 20px;"></div>
+      <hr>
+      <p style="margin: 0 25px;" id="countOfBlogs"></p>
+      <div style="height: 2px;"></div>
+   </div>
+   
+   <!-- FOOTER -->
+</body>
+</html>

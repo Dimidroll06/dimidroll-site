@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .main_page p{
+         margin: 10px 0;
+      }
+      .main_page h1{
+         margin: 40px 0;
+      }
+      .main_page h2{
+         margin: 30px 0;
+      }
+      .main_page h3{
+         margin: 24px 0;
+      }
+      .main_page hr{
+         max-width: 100%;
+         width: 64px;
+         margin: 50px auto;
+
+      }
+   </style>
+   <link rel="stylesheet" href="/style.css">
+   <link rel="stylesheet" href="/styles/github-gist.css">
+
+   <script src="/scripts/highlight.pack.js"></script>
+
+   <script src="/scripts/showdown.min.js"></script>
+   <script src="/scripts/main.js"></script>
+</head>
+<body onload="newHeader(document.querySelector('header'))">
+   <header></header>
+   <script>newNav()</script>
+   
+   <script>
+      
+      if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+         // some code..
+            document.querySelector('body>nav').classList.add('scroll');
+         }else{
+            document.querySelector('body>nav').classList.add('hover_scroll');
+         }
+
+      setInterval(()=>{
+         document.querySelector('body>nav').classList.remove('scroll');
+         document.querySelector('body>nav').classList.remove('hover_scroll');
+         if( /Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+         // some code..
+            document.querySelector('body>nav').classList.add('scroll');
+         }else{
+            document.querySelector('body>nav').classList.add('hover_scroll');
+         }
+      }, 1000)
+
+   </script>
+
+   <div class="main_page">
+      <div class="container" style="padding: 60px 80px; width: calc(100% - 160px);">
+         
+      </div>
+   </div>
+
+   <script src="/scripts/blogPage.js"></script>
+   
+</body>
+</html>
