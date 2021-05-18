@@ -4,21 +4,21 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>Main || Dmidroll</title>
    
-   <script src="/scripts/main.js"></script>
+   <script src="/dimidroll-site/scripts/main.js"></script>
 
    
-   <link rel="stylesheet" href="style.css">
-   <link rel="stylesheet" href="styles/indexPage.css">
+   <link rel="stylesheet" href="/dimidroll-site/style.css">
+   <link rel="stylesheet" href="/dimidroll-site/styles/indexPage.css">
    <script src="./pages.js"></script>
    
-   <link rel="stylesheet" href="/style.css">
-   <link rel="stylesheet" href="/styles/github-gist.css">
+   <link rel="stylesheet" href="/dimidroll-site/style.css">
+   <link rel="stylesheet" href="/dimidroll-site/styles/github-gist.css">
 
-   <script src="/scripts/highlight.pack.js"></script>
+   <script src="/dimidroll-site/scripts/highlight.pack.js"></script>
 
-   <script src="/scripts/showdown.min.js"></script>
+   <script src="/dimidroll-site/scripts/showdown.min.js"></script>
 
 </head>
 <body onload="newHeader(document.querySelector('header'))">
@@ -77,10 +77,10 @@
          <script>
             pages.blogIndex.forEach(blogName => {
                var name = blogName
-               fetch(`/blog/${name}/parameters.json`).then(resp=>{
+               fetch(`/dimidroll-site/blog/${name}/parameters.json`).then(resp=>{
                   if(resp.ok){
                      resp.json().then(params=>{
-                        fetch(`/blog/${name}/text.md`).then(resp2=>{
+                        fetch(`/dimidroll-site/blog/${name}/text.md`).then(resp2=>{
                            if(resp2.ok){
                               resp2.text().then(blogMdText=>{
                                  var blog = document.createElement('section');
@@ -101,7 +101,7 @@
                                  var fixedMdText = blogMdText.split('[---]');
                                  fixedMdText = fixedMdText[0]
                                  
-                                 var innerHtml = converter.makeHtml(fixedMdText)+`<br><br>\n<a href="blog/page.html?blog=${name}"> READ MORE </a>`;
+                                 var innerHtml = converter.makeHtml(fixedMdText)+`<br><br>\n<a href="/dimidroll-site/blog/page.html?blog=${name}"> READ MORE </a>`;
                                  var p = document.createElement('div');
                                  p.classList.add('inner');
                                  p.innerHTML = innerHtml;

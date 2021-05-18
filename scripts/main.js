@@ -13,9 +13,9 @@ function newHeader(domelem){
 `
 <h3>Dimidroll</h3>
 <nav>
-   <a href="/index.html">Main</a>
+   <a href="/dimidroll-site/index.html">Main</a>
    <a href="#">About</a>
-   <a href="/blogs.html">Blog</a>
+   <a href="/dimidroll-site/blogs.html">Blog</a>
 </nav>
 `
 }

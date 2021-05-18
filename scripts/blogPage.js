@@ -5,7 +5,7 @@ var tagsSection = document.createElement('section');
 tagsSection.innerHTML = `<h3>Теги</h3>`
 var blogParams = false;
 
-fetch(`/blog/${blogName}/parameters.json`).then(resp=>{
+fetch(`/dimidroll-site/blog/${blogName}/parameters.json`).then(resp=>{
    if(resp.ok) resp.json().then(val=>{
       blogParams = val;
       loadPage();
