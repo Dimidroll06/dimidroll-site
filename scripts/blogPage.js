@@ -33,7 +33,7 @@ function loadPage(){
    document.querySelector('body>nav').appendChild(tagsSection);
    document.querySelector('body>nav').appendChild(document.createElement('hr'));
 
-   fetch(`/blog/${blogName}/text.md`).then(resp=>{
+   fetch(`/dimidroll-site/blog/${blogName}/text.md`).then(resp=>{
       if(resp.ok){
          resp.text().then(blogMdText=>{
 ///////////////////////////////////////////
