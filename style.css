@@ -43,7 +43,7 @@ header{
    justify-content: space-between;
    position: fixed;
    
-   padding: 0 20%;
+   padding: 0 8px;
    
    z-index: 1000;
    top: 0;
@@ -62,7 +62,7 @@ header>nav{
    width: 50%;
 }
 header>nav>*{
-   margin: 0 10px;
+   margin: 0 3px;
 }
 @media screen and (max-width: 600px) { 
    /* MAIN PAGE */
