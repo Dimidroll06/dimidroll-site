@@ -1,5 +1,5 @@
 const pages = {
    games: [],
-   blog: ["Добро_пожаловать!"],
-   blogIndex: ["Добро_пожаловать!"]
+   blog: ["Добро_пожаловать!", "young_knight"],
+   blogIndex: ["Добро_пожаловать!", "young_knight"]
 }
